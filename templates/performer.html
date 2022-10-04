@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Onion, In document search engine</title>
+<div>
+    <img src="{{url_for('static', filename='potato.gif')}}" alt="N2-Square"/>
+</div>
+<div id="myRadioGroup">
+    <form method="POST">
+        <h1>Context based search</h1>
+        <input type="textarea" name="text_to_search" id="text_to_search">
+        <input type="submit">
+    </form>
+</div>
+<div>
+    {% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+    {% endfor %}
+</div>

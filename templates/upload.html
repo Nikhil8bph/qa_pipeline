@@ -1,0 +1,40 @@
+<!doctype html>
+<title>Onion, In document search engine</title>
+<div>
+    <img src="{{url_for('static', filename='potato.gif')}}" alt="N2-Square"/>
+    <h1>Hi, This is Onion</h1>
+    <pre>
+        A project being developed under N2-Square.
+        The motive of this project is to search in your documents based on the documents you upload.
+        I am capable of making things simple and adjust will all my surrounding friends so 
+        My developer Nikhil Sharma has named me Onion.
+        Want to try me?
+        why waiting let's get started by uploading your files.
+    </pre>
+</div>
+<h2>Select file(s) to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="files[]" multiple="true" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit">
+	</p>
+</form>
+
+<form action="/perform">
+    <input type="submit" value="Let's get started" />
+</form>
